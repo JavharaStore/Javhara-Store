@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Javhara Brand</title>
+<style>
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  body {
+    background: #f9f9fb;
+    color: #222;
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, #6B4EFF, #A38FFF);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(107,78,255,0.3);
+  }
+  header h1 {
+    font-size: 3rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.2rem;
+  }
+  header p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+  }
+  nav {
+    background: #5a3bd3;
+    display: flex;
+    justify-content: center;
+    padding: 0.4rem 0;
+    box-shadow: 0 2px 4px rgba(90,59,211,0.4);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1.2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+  }
+  nav a:hover,
+  nav a:focus {
+    color: #d1c4ff;
+  }
+  main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  section.hero {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(101, 78, 255, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+  }
+  .hero-text {
+    flex: 1 1 350px;
+  }
+  .hero-text h2 {
+    font-size: 2rem;
+    color: #563dff;
+    margin-bottom: 0.8rem;
+  }
+  .hero-text p {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 1.5rem;
+  }
+  .hero-text button {
+    background-color: #6B4EFF;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 35px;
+    box-shadow: 0 5px 15px rgba(107,78,255,0.4);
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .hero-text button:hover {
+    background: #553dc3;
+  }
+  .hero-image {
+    flex: 1 1 300px;
+    text-align: center;
+  }
+  .hero-image img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(107,78,255,0.2);
+  }
+
+  section.products {
+    margin-top: 4rem;
+  }
+  section.products h3 {
+    font-size: 2rem;
+    text-align: center;
+    color: #6B4EFF;
+    margin-bottom: 2rem;
+  }
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2rem;
+  }
+  .product-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 7px 18px rgba(101, 78, 255, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .product-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(101, 78, 255, 0.2);
+  }
+  .product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+  .product-info {
+    padding: 1rem 1.2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-info h4 {
+    margin-bottom: 0.6rem;
+    color: #4a3ec1;
+  }
+  .product-info p {
+    flex-grow: 1;
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1.2rem;
+  }
+  .product-info button {
+    align-self: flex-start;
+    padding: 0.5rem 1.4rem;
+    border: none;
+    background-color: #6B4EFF;
+    color: white;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .product-info button:hover {
+    background-color: #553dc3;
+  }
+
+  section.about {
+    margin-top: 5rem;
+    padding: 2rem 1rem;
+    background: #6B4EFF;
+    color: white;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(107,78,255,0.25);
+  }
+  section.about h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  section.about p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 0.9rem;
+    background: #5a3bd3;
+    color: white;
+    padding: 1rem 0;
+    margin-top: 4rem;
+  }
+
+  @media (max-width: 768px) {
+    section.hero {
+      flex-direction: column;
+    }
+    .hero-image img {
+      max-width: 260px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Javhara</h1>
+  <p>Quality & Elegance for Your Lifestyle</p>
+</header>
+
+<nav>
+  <a href="#hero">Home</a>
+  <a href="#products">Produk</a>
+  <a href="#about">Tentang Kami</a>
+  <a href="#contact">Kontak</a>
+</nav>
+
+<main>
+  <section class="hero" id="hero" aria-label="Intro Javhara brand">
+    <div class="hero-text">
+      <h2>Selamat Datang di Javhara</h2>
+      <p>Menawarkan produk-produk berkualitas dengan desain elegan yang menyempurnakan gaya hidup Anda.</p>
+      <button onclick="alert('Terima kasih telah mengunjungi Javhara!')">Jelajahi Produk Kami</button>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Produk Javhara yang elegan" />
+    </div>
+  </section>
+
+  <section class="products" id="products" aria-label="Produk unggulan Javhara">
+    <h3>Produk Unggulan</h3>
+    <div class="product-list">
+      <article class="product-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1495121605193-b116b5b09c5e?auto=format&fit=crop&w=400&q=80" alt="Tas kulit premium Javhara" />
+        <div class="product-info">
+          <h4>Tas Kulit Premium</h4>
+          <p>Tas kulit asli dengan desain modern dan kuat, cocok untuk aktivitas harian dan acara spesial.</p>
+          <button onclick="alert('Tas Kulit Premium ditambahkan ke keranjang!')">Beli Sekarang</button>
+        </div>
+      </article>
+      <article class="product-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80" alt="Jam tangan elegan Javhara" />
+        <div class="product-info">
+          <h4>Jam Tangan Elegan</h4>
+          <p>Jam tangan dengan desain klasik yang timeless, cocok sebagai aksesori gaya maupun hadiah istimewa.</p>
+          <button onclick="alert('Jam Tangan Elegan ditambahkan ke keranjang!')">Beli Sekarang</button>
+        </div>
+      </article>
+      <article class="product-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1486915309851-b0cc1f8a008e?auto=format&fit=crop&w=400&q=80" alt="Sepatu casual stylish Javhara" />
+        <div class="product-info">
+          <h4>Sepatu Casual Stylish</h4>
+          <p>Sepatu nyaman dengan desain trendy untuk menemani aktivitas santai Anda setiap hari.</p>
+          <button onclick="alert('Sepatu Casual Stylish ditambahkan ke keranjang!')">Beli Sekarang</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="about" id="about" aria-label="Tentang Javhara brand">
+    <h3>Tentang Javhara</h3>
+    <p>
+      Javhara adalah brand yang mengedepankan kualitas dan desain elegan dalam setiap produknya. Kami berkomitmen menghadirkan produk yang tidak hanya indah tapi juga tahan lama, agar dapat menjadi bagian dari gaya hidup Anda sehari-hari.
+    </p>
+  </section>
+
+  <section id="contact" style="margin-top:4rem; max-width:600px; margin-left:auto; margin-right:auto;">
+    <h3 style="text-align:center; color:#6B4EFF; margin-bottom:1rem;">Hubungi Kami</h3>
+    <form onsubmit="event.preventDefault(); alert('Terima kasih telah menghubungi Javhara! Kami akan segera menghubungi Anda.');" aria-label="Formulir kontak Javhara">
+      <label for="name" style="display:block; margin-bottom:0.3rem; font-weight:600;">Nama</label>
+      <input type="text" id="name" name="name" required style="width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:6px; border:1px solid #ccc;" />
+      
+      <label for="email" style="display:block; margin-bottom:0.3rem; font-weight:600;">Email</label>
+      <input type="email" id="email" name="email" required style="width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:6px; border:1px solid #ccc;" />
+      
+      <label for="message" style="display:block; margin-bottom:0.3rem; font-weight:600;">Pesan</label>
+      <textarea id="message" name="message" required rows="5" style="width:100%; padding:0.7rem; border-radius:6px; border:1px solid #ccc; resize:none;"></textarea>
+      
+      <button type="submit" style="background-color:#6B4EFF; border:none; color:white; padding:0.8rem 2rem; border-radius:35px; font-size:1rem; cursor:pointer; box-shadow:0 5px 15px rgba(107,78,255,0.4); margin-top:1rem;">Kirim Pesan</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Javhara. All rights reserved.
+</footer>
+
+</body>
+</html>
+
